@@ -7,6 +7,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @unit_types = Game::UNIT_TYPES
   end
 
   def create
@@ -24,7 +25,9 @@ class GamesController < ApplicationController
     @rosters = @game.rosters
   end
 
-  def edit; end
+  def edit
+    @unit_types = Game::UNIT_TYPES
+  end
 
   def update
     if @game.update(game_params)

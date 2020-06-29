@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :rosters, only: [:new]
   end
 
-  resources :rosters, only: [:create, :show, :edit, :update, :destroy]
+  resources :rosters, only: [:create, :show, :edit, :update, :destroy] do
+    resources :units
+  end
 
 end

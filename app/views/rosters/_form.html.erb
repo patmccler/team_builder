@@ -1,0 +1,8 @@
+<%= form_for [@roster.game, @roster] do |f|%>
+  <%= f.hidden_field :game_id%>
+  <%= f.label :name%><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :description %><br>
+  <%= f.text_field :description%><br>
+  <%= f.submit %>
+<% end %>

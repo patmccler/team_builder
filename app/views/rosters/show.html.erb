@@ -1,0 +1,15 @@
+<h2> <%= @roster.name %> roster for <%= @roster.game.name %></h2>
+<h4> <%= @roster.description %></h4>
+<%= link_to "Edit", edit_roster_path(@roster) %>
+<br>
+<ol>
+  <% @roster.units.each do |unit| %>
+    <li><%= unit.name %></li>
+  <% end %>
+</ol>
+<br>
+<%= link_to "Delete this Roster",
+            roster_path(@roster),
+            method: "DELETE",
+            data: {confirm: "Are you sure?"} %><br>
+<%= link_to "Back to Game", @roster.game %>

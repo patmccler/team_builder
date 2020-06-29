@@ -5,10 +5,11 @@
 <ol>
   <% @rosters.each do |roster| %>
     <li>
-      <%= link_to roster.name, game_roster_path(@game, roster)%>
+      <%= link_to roster.name, roster_path(roster)%>
     </li>
   <% end %>
 </ol>
+<%= link_to "New Roster", new_game_roster_path(@game)%>
 <br>
 <%= link_to "Delete me?", game_path(@game), method: "DELETE", data: {confirm: "Are you sure?"} %>
 <br>

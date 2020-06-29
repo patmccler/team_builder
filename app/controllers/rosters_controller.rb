@@ -8,7 +8,7 @@ class RostersController < ApplicationController
     roster = Roster.new(roster_params)
 
     if roster.save
-      redirect_to game_roster_path(roster.game, roster)
+      redirect_to roster
     else
       @roster = roster
       render :new

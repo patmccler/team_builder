@@ -1,4 +1,4 @@
-<%= form_for [@roster.game, @roster] do |f|%>
+<%= form_for @roster do |f|%>
   <%= f.hidden_field :game_id%>
   <%= f.label :name%><br>
   <%= f.text_field :name %><br>

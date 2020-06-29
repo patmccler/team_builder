@@ -1,0 +1,9 @@
+<h2>All Games</h2>
+
+<ol>
+  <% @games.each do |game| %>
+    <li><%= link_to game.name, game_path(game) %></li>
+  <% end %>
+</ol>
+<br>
+<%= link_to "New Game", new_game_path %>

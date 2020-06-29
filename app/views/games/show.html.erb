@@ -1,6 +1,14 @@
 <h2><%= @game.name %></h2>
-<%= link_to "Edit", edit_game_path(@game)%>
-<br>
-<%= link_to "Delete me?", game_path(@game), method: "DELETE" %>
-<br>
+<%= link_to "Edit", edit_game_path(@game)%> |
 <%= link_to "Back to listing", games_path %>
+<br>
+<ol>
+  <% @rosters.each do |roster| %>
+    <li>
+      <%= link_to roster.name, game_roster_path(@game, roster)%>
+    </li>
+  <% end %>
+</ol>
+<br>
+<%= link_to "Delete me?", game_path(@game), method: "DELETE", data: {confirm: "Are you sure?"} %>
+<br>

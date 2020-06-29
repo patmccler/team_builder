@@ -20,7 +20,9 @@ class GamesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @rosters = @game.rosters
+  end
 
   def edit; end
 

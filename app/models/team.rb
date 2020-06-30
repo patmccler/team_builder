@@ -1,5 +1,4 @@
 class Team < ApplicationRecord
-  belongs_to :game
   belongs_to :roster
 
   has_many :team_memberships

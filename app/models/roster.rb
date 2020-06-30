@@ -6,4 +6,8 @@ class Roster < ApplicationRecord
   def units
     roster_memberships.map(&:unit)
   end
+
+  def name_with_game
+    game.name + " - " + name
+  end
 end

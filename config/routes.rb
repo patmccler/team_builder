@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   end
 
   resources :rosters, only: [:create, :show, :edit, :update, :destroy] do
-    resources :units
+    resources :warcraft_units, only: [:index, :new]
+    resources :team_fight_tactics_units
   end
+
+  resources :warcraft_units, only: [:edit, :update]
 
 end

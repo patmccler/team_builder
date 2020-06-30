@@ -7,6 +7,6 @@
       <%= link_to "Edit", edit_warcraft_unit_path(unit) %>
     </li>
   <% end %>
-  <%= link_to "Add new unit", new_roster_warcraft_unit_path(@roster) %>
-
 </ol>
+<%= link_to "Add new unit", new_roster_warcraft_unit_path(@roster) %><br>
+<%= link_to "Back to Roster", roster_path(@roster)%>

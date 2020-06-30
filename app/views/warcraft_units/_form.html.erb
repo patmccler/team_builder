@@ -1,4 +1,4 @@
-<%= form_for @unit do |f| %>
+<%= form_for (@roster ? [@roster, @unit] : @unit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
   <%= f.submit "Create New Unit"%>

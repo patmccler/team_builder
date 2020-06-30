@@ -1,0 +1,12 @@
+<h2> Units <%= "for #{@roster.name}" if @roster %></h2>
+<ol>
+  <% @units.each do |unit| %>
+    <li>
+      <%# TODO: partial view for warcraft unit %>
+      <%= unit.name %><br>
+      <%= link_to "Edit", edit_team_fight_tactics_unit_path(unit) %>
+    </li>
+  <% end %>
+</ol>
+<%= link_to "Add new unit", new_roster_team_fight_tactics_unit_path(@roster) %><br>
+<%= link_to "Back to Roster", roster_path(@roster)%>

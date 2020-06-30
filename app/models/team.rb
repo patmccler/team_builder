@@ -1,4 +1,7 @@
 class Team < ApplicationRecord
+  belongs_to :game
+  belongs_to :roster
+
   has_many :team_memberships
 
   # has_many :units, through: :team_memberships wants a table name to work

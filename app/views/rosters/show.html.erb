@@ -2,8 +2,14 @@
 <h4> <%= @roster.description %></h4>
 <%= link_to "Edit", edit_roster_path(@roster) %>
 <br>
-<%= link_to "See all #{pluralize(@roster.units.count, 'unit')}",
-            roster_units_path(@roster) %>
+<p>This roster has <%= pluralize(@roster.units.count, 'unit')%>.</p>
+<ol>
+  <% @roster.units.count do |unit| %>
+    <li><%= unit.name %></li>
+  <% end %>
+</ol>
+<%= link_to "Change Units", roster_units_path(@roster) %>
+<br>
 <br>
 <%= link_to "Delete this Roster",
             roster_path(@roster),

@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :team_fight_tactics_units
   end
 
-  resources :warcraft_units, only: [:edit, :update]
+  resources :warcraft_units, only: [:create, :edit, :update]
 
 end

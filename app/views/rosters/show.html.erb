@@ -4,7 +4,7 @@
 <br>
 <p>This roster has <%= pluralize(@roster.units.count, 'unit')%>.</p>
 <ol>
-  <% @roster.units.count do |unit| %>
+  <% @roster.units.each do |unit| %>
     <li><%= unit.name %></li>
   <% end %>
 </ol>

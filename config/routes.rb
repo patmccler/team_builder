@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  root "static#welcome"
+
   resources :games do
     resources :rosters, only: [:new]
   end
@@ -14,4 +16,8 @@ Rails.application.routes.draw do
   resources :team_fight_tactics_units, only: [:create, :edit, :update, :show]
 
   resources :teams
+
+  get "signup", to: "user#new"
+  get "signin", to: "session#new"
+  get "logout", to: "session#destroy"
 end

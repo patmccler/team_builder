@@ -1,4 +1,6 @@
 class TeamFightTacticsUnit < ApplicationRecord
+  belongs_to :game
+
   has_many :team_memberships, as: :unit
   has_many :teams, through: :team_memberships
 

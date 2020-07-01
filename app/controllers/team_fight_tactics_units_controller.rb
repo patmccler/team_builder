@@ -19,7 +19,7 @@ class TeamFightTacticsUnitsController < ApplicationController
     @unit.game = @roster.game
 
     if @unit.save
-      redirect_to @roster || @unit
+      redirect_to roster_team_fight_tactics_units_path(@roster) || @unit
     else
       render :new
     end

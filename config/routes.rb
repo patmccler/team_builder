@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :teams
 
-  get "signup", to: "user#new"
+  resources :users, only: [:create]
+
+  get "signup", to: "users#new"
   get "signin", to: "session#new"
   get "logout", to: "session#destroy"
 end

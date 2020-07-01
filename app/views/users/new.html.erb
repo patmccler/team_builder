@@ -1,0 +1,11 @@
+<h2> Create a new user</h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  <%= f.label :admin %><br>
+  <%= f.check_box :admin %><br>
+  <%= f.submit %>
+<% end %>

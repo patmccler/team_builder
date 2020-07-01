@@ -43,6 +43,6 @@ private
   end
 
   def team_params
-    params.require(:team).permit(:name, :roster_id, team_memberships_attributes: [:id, :unit_id])
+    params.require(:team).permit(:name, :roster_id, :team_size, team_memberships_attributes: [:id, :unit_id])
   end
 end

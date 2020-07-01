@@ -1,6 +1,9 @@
 <h2> Change members for <%= @team.name %></h2>
   <%= form_for @team do |f| %>
 
+    <%= f.label :team_size %>
+    <%= f.text_field :team_size %><br><br>
+
     <%= f.fields_for :team_memberships do |membership_attributes| %>
   <%# TODO: Make a nice grid here, make this a partial? %>
       <%= membership_attributes.label "Unit #{membership_attributes.index + 1}" %>

@@ -1,5 +1,6 @@
 class Roster < ApplicationRecord
   belongs_to :game
+  delegate :unit_type, to: :game
 
   has_many :roster_memberships
 

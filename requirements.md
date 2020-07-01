@@ -23,7 +23,8 @@ implemented manually
 /roster/:id/warcraft_units
 - [ ] Includes nested resource form (recipes/1/ingredients/new)
 Team/edit has field_for team_memberships, editing all the units on the team at once
-- [ ] Includes form display of validation errors
+- [x] Includes form display of validation errors
+all forms should show errors in page
 - [ ] Includes Unit tests all of your models
 - [ ] Includes at least one type of Integration test (e.g. controller, request, feature, system)
 - [ ] Use FactoryBot to build instances of your models in your tests

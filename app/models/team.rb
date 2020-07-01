@@ -6,6 +6,9 @@ class Team < ApplicationRecord
 
   accepts_nested_attributes_for :team_memberships
 
+  validates :team_size, numericality: { only_integer: true, less_than_or_equal_to: 40, greater_than_or_equal_to: 1 }
+  validates :name, presence: true, uniqueness: { scope: :user_id, case_sensitive: false }
+
   before_save :sync_memberships_with_team_size, if: :team_size_changed?
 
   # has_many :units, through: :team_memberships wants a table name to work

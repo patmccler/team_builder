@@ -17,6 +17,7 @@ class TeamsController < ApplicationController
 
   def create
     team = Team.new(team_params)
+    team.user = helpers.current_user
 
     if team.save
       redirect_to team

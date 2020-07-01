@@ -1,5 +1,5 @@
 <h2>Add a new team </h2>
-
+<%= render 'layouts/errors', object: @team %>
 <%= form_for @team do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>

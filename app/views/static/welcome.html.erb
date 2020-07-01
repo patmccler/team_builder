@@ -1,6 +1,11 @@
 <h2> Welcome to Team Builder!</h2>
 
-<p>Sign in to see your teams</p>
 
-<%= link_to "Sign In", signin_path%><br>
-<%= link_to "Sign Up", signup_path%>
+<% if !logged_in? %>
+  <h3>Sign in to see your teams</h3>
+  <%= link_to "Sign In", signin_path%><br>
+  <%= link_to "Sign Up", signup_path%>
+<% else %>
+  <h3>Welcome, <%= current_user.username %></h3>
+  <p> Not you? <%= link_to "Log Out", logout_path %>
+<% end %>

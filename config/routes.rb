@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   get "signup", to: "users#new"
-  get "signin", to: "session#new"
-  get "logout", to: "session#destroy"
+  get "signin", to: "sessions#new"
+  get "logout", to: "sessions#destroy"
 end

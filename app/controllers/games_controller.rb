@@ -18,7 +18,8 @@ class GamesController < ApplicationController
       redirect_to game_path(game)
     else
       @game = game
-      render new
+      @unit_types = Game::UNIT_TYPES
+      render :new
     end
   end
 

@@ -17,3 +17,7 @@
  body {
    background-color: lightslategray;
  }
+
+ .field_with_errors {
+   display: inline;
+ }

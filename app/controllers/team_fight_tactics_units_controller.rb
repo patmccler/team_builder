@@ -11,16 +11,14 @@ class TeamFightTacticsUnitsController < ApplicationController
   end
 
   def create
-    unit = TeamFightTacticsUnit.new(team_fight_tactics_unit_params)
-    roster = Roster.find(params[:roster_id])
-    unit.roster_memberships.build(roster: roster) if roster
-    unit.game = roster.game
+    @unit = TeamFightTacticsUnit.new(team_fight_tactics_unit_params)
+    @roster = Roster.find(params[:roster_id])
+    @unit.roster_memberships.build(roster: @roster) if @roster
+    @unit.game = roster.game
 
     if unit.save
-      redirect_to (params[:roster_id] ? roster_team_fight_tactics_units_path(unit.rosters.first) : unit)
+      redirect_to @roster || @unit
     else
-      @unit = unit
-      @roster = roster
       render :new
     end
   end

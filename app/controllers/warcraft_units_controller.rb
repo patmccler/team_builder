@@ -11,17 +11,19 @@ class WarcraftUnitsController < ApplicationController
   end
 
   def create
-    unit = WarcraftUnit.new(warcraft_unit_params)
-    unit.roster_memberships.build(roster: Roster.find(params[:roster_id])) if params[:roster_id]
+    @unit = WarcraftUnit.new(warcraft_unit_params)
+    @roster = Roster.find(params[:roster_id])
+    @unit.roster_memberships.build(roster: @roster) if @roster
+    @unit.game = @roster.game
 
-    if unit.save
-      redirect_to (params[:roster_id] ? roster_warcraft_units_path(unit.rosters.first) : unit)
+    if @unit.save
+      redirect_to @roster || @unit
     else
-      @unit = unit
-      @roster = params.find(:roster_id)
-      redirect_to new
+      render :new
     end
   end
+
+
 
 private
 

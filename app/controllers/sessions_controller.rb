@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def create
-
     @user = User.find_by(username: user_params[:username])
 
     if @user.authenticate(user_params[:password])
@@ -10,7 +9,6 @@ class SessionsController < ApplicationController
 
       render "static/signin"
     end
-
   end
 
   def destroy

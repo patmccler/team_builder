@@ -4,15 +4,25 @@ Add notes below each checkbox with how your application has met the requirement
 
 Requirements:
 - [x] Uses Ruby on Rails
-- [ ] Includes at least one has_many relationship (e.g. User has_many Recipes)
-- [ ] Includes at least one belongs_to relationship (e.g. Post belongs_to User)
-- [ ] Includes at least two has_many through relationships (e.g. a `Recipe` could `has_many` `Item`s through `Ingredient`s)
-- [ ] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
-- [ ] Includes reasonable validations
-- [ ] Includes a class level ActiveRecord scope method
-- [ ] Includes signup, login and logout functionality (e.g. Devise)
-- [ ] Includes nested resource show or index (e.g. users/2/recipes)
+yes
+- [x] Includes at least one has_many relationship (e.g. User has_many Recipes)
+User has many teams, and others
+- [x] Includes at least one belongs_to relationship (e.g. Post belongs_to User)
+team belongs to user, roster belongs to game
+- [x] Includes at least two has_many through relationships (e.g. a `Recipe` could `has_many` `Item`s through `Ingredient`s)
+team has units through team_membership, roster has units through roster_membership
+- [TODO] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
+memberships need more...
+- [x] Includes reasonable validations
+no duplicates, no empty values
+- [x] Includes a class level ActiveRecord scope method
+both units have a scope for units that are in a roster with a given unit (is this class level?)
+- [x] Includes signup, login and logout functionality (e.g. Devise)
+implemented manually
+- [x] Includes nested resource show or index (e.g. users/2/recipes)
+/roster/:id/warcraft_units
 - [ ] Includes nested resource form (recipes/1/ingredients/new)
+Team/edit has field_for team_memberships, editing all the units on the team at once
 - [ ] Includes form display of validation errors
 - [ ] Includes Unit tests all of your models
 - [ ] Includes at least one type of Integration test (e.g. controller, request, feature, system)

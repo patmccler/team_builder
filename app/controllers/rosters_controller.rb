@@ -1,5 +1,5 @@
 class RostersController < ApplicationController
-  before_action :set_roster, only: [:show, :edit, :update,  :destroy]
+  before_action :set_roster, only: %i[show edit update destroy]
   before_action :require_admin
 
   def new
@@ -17,13 +17,9 @@ class RostersController < ApplicationController
     end
   end
 
-  def show
+  def show; end
 
-  end
-
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @roster.update(roster_params)

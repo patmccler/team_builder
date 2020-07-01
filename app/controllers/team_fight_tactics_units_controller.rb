@@ -1,5 +1,5 @@
 class TeamFightTacticsUnitsController < ApplicationController
-  before_action :set_unit, only: [:edit, :update]
+  before_action :set_unit, only: %i[edit update]
   before_action :require_admin
 
   def index
@@ -10,7 +10,6 @@ class TeamFightTacticsUnitsController < ApplicationController
   def new
     @unit = TeamFightTacticsUnit.new
     @roster = Roster.find_by(id: params[:roster_id])
-
   end
 
   def create
@@ -26,9 +25,7 @@ class TeamFightTacticsUnitsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @unit.update(team_fight_tactics_unit_params)

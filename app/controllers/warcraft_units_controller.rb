@@ -1,5 +1,5 @@
 class WarcraftUnitsController < ApplicationController
-  before_action :set_unit, only: [:edit, :update]
+  before_action :set_unit, only: %i[edit update]
   before_action :require_admin
 
   def index
@@ -25,8 +25,7 @@ class WarcraftUnitsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @unit.update(warcraft_unit_params)

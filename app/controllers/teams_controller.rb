@@ -1,14 +1,11 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: %i[show edit update destroy]
   def index
     @teams = Team.all if helpers.admin?
     @user_teams = helpers.current_user.teams
   end
 
-  def show
-
-  end
-
+  def show; end
 
   def new
     @team = Team.new
@@ -49,6 +46,6 @@ private
   end
 
   def team_params
-    params.require(:team).permit(:name, :roster_id, :team_size, team_memberships_attributes: [:id, :unit_id])
+    params.require(:team).permit(:name, :roster_id, :team_size, team_memberships_attributes: %i[id unit_id])
   end
 end

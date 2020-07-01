@@ -1,5 +1,4 @@
 module GameHelper
-
   def game_type_radio_button_with_label(form, unit_type)
     if form.object.persisted?
       if form.object.unit_type == unit_type

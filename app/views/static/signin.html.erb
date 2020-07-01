@@ -1,0 +1,11 @@
+<h2>Welcome back!</h2>
+<h4> Who are you?</h4>
+
+<%= form_with scope: :user, url: sessions_path do |f| %>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  <%= f.submit "Log In"%>
+
+<% end %>

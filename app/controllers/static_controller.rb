@@ -1,5 +1,7 @@
 class StaticController < ApplicationController
-  def welcome
+  def welcome; end
 
+  def signin
+    @user = User.new
   end
 end

@@ -1,0 +1,5 @@
+<h2> Add new members to <%= @team.name %></h2>
+  <%= form_for @team do |f| %>
+    <%= f.collection_select(:units, @roster.units, :unit_id, :name, {}, {multiple: true, size: @roster.units.count + 1}) %>
+    <%= f.submit %>
+  <% end %>

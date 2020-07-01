@@ -13,7 +13,5 @@ Rails.application.routes.draw do
   resources :warcraft_units, only: [:create, :edit, :update, :show]
   resources :team_fight_tactics_units, only: [:create, :edit, :update, :show]
 
-  resources :teams do
-    resources :team_memberships, only: [:new, :create]
-  end
+  resources :teams
 end

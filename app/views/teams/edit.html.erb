@@ -1,0 +1,11 @@
+<h2> Add new members to <%= @team.name %></h2>
+  <%= form_for @team do |f| %>
+
+    <%= f.fields_for :team_memberships do |membership_attributes| %>
+  <%# TODO: Make a nice grid here, make this a partial? %>
+      <%= membership_attributes.label "Unit #{membership_attributes.index + 1}" %>
+      <br>
+      <%= membership_attributes.collection_select(:unit_id, @roster.units, :id, :name) %><br>
+      <% end %>
+    <%= f.submit %>
+  <% end %>

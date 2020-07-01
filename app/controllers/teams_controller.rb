@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show]
+  before_action :set_team, only: [:show, :edit, :update]
   def index
     # TODO: Show only logged in user unless they are admin, once users implemented
     @teams = Team.all
@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
   def show
 
   end
+
 
   def new
     @team = Team.new
@@ -26,6 +27,15 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    @roster = @team.roster
+  end
+
+  def update
+    @team.update(team_params)
+    redirect_to @team
+  end
+
 private
 
   def set_team
@@ -33,6 +43,6 @@ private
   end
 
   def team_params
-    params.require(:team).permit(:name, :roster_id)
+    params.require(:team).permit(:name, :roster_id, team_memberships_attributes: [:id, :unit_id])
   end
 end

@@ -10,7 +10,6 @@ class WarcraftUnitsController < ApplicationController
   def new
     @unit = WarcraftUnit.new
     @roster = Roster.find_by(id: params[:roster_id])
-
   end
 
   def create

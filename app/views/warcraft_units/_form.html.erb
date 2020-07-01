@@ -1,3 +1,5 @@
+<%= render 'layouts/errors', object: @unit %>
+
 <%= form_for (@roster ? [@roster, @unit] : @unit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>

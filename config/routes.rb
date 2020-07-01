@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get "signup", to: "users#new"
   get "signin", to: "static#signin"
+
+  # DELETE not working with rails 6 and jquery, maybe this can be better
   get "logout", to: "sessions#destroy"
   resources :sessions, only: [:create]
 end

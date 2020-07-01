@@ -1,3 +1,5 @@
+<%= render 'layouts/errors', object: @roster %>
+
 <%= form_for @roster do |f|%>
   <%= f.hidden_field :game_id%>
   <%= f.label :name%><br>

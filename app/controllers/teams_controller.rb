@@ -1,8 +1,8 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
   def index
-    # TODO: Show only logged in user unless they are admin, once users implemented
-    @teams = Team.all
+    @teams = Team.all if helpers.admin?
+    @user_teams = helpers.current_user.teams
   end
 
   def show
@@ -35,6 +35,11 @@ class TeamsController < ApplicationController
   def update
     @team.update(team_params)
     redirect_to @team
+  end
+
+  def destroy
+    @team.destroy
+    redirect_to teams_path
   end
 
 private

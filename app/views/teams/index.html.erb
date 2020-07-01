@@ -1,9 +1,13 @@
-<h2>All Teams</h2>
-
+<h2><%= current_user.username%>'s Teams </h2>
 <ol>
-  <% @teams.each do |team| %>
-    <li><%= link_to team.name, team_path(team) %></li>
-  <% end %>
+  <%= render partial: "team", collection: @user_teams %>
 </ol>
+
+<% if @teams %>
+  <h2>All Teams</h2>
+  <ol>
+    <%= render partial: "team", collection: @teams %>
+  </ol>
+<% end %>
 
 <%= link_to "New Team", new_team_path%>

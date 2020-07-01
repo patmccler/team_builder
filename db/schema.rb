@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_121555) do
+ActiveRecord::Schema.define(version: 2020_07_01_201757) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_07_01_121555) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "roster_id", null: false
     t.integer "team_size"
+    t.integer "user_id"
     t.index ["roster_id"], name: "index_teams_on_roster_id"
   end
 

@@ -1,5 +1,6 @@
 class Team < ApplicationRecord
   belongs_to :roster
+  belongs_to :user
 
   has_many :team_memberships, dependent: :destroy
 

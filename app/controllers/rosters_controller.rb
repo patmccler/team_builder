@@ -1,5 +1,7 @@
 class RostersController < ApplicationController
   before_action :set_roster, only: [:show, :edit, :update,  :destroy]
+  before_action :require_admin
+
   def new
     @roster = Roster.new(game: Game.find(params[:game_id]))
   end

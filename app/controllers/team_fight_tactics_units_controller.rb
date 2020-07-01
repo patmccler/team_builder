@@ -1,5 +1,6 @@
 class TeamFightTacticsUnitsController < ApplicationController
   before_action :set_unit, only: [:edit, :update]
+  before_action :require_admin
 
   def index
     @roster = Roster.find_by(id: params[:roster_id])

@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
   belongs_to :roster
 
-  has_many :team_memberships
+  has_many :team_memberships, dependent: :destroy
 
   accepts_nested_attributes_for :team_memberships
 

@@ -6,4 +6,6 @@
     <li><%= unit ? unit.name : "unselected" %></li>
   <% end %>
 </ol>
-<%= link_to "Edit", edit_team_path(@team)%>
+<%= link_to "Edit", edit_team_path(@team)%><br><br>
+
+<%= link_to "Back to Teams", teams_path%>

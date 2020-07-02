@@ -11,12 +11,16 @@ RSpec.describe WarcraftUnit do
     it "must have a unique name in its rosters" do
       expect(build(:roster, name: nil).valid?).to be(false)
 
-
       name = "Marksman Hunter"
-      roster = create :roster
-      # TODO: FINISH THIS
+      game = create :game
+      roster = create :roster, game: game
 
-      expect(build(:warcraft_unit, name: name).valid?).to be(false)
+      create :roster_membership, roster: roster, unit: (create :warcraft_unit, name: name, game: game)
+
+      unit = build(:warcraft_unit, name: name, game: game)
+      # using factory doesnt hit validation correctly
+      unit.roster_memberships.build(roster: roster)
+      expect(unit.valid?).to be(false)
     end
 
   end

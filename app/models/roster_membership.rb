@@ -4,6 +4,10 @@ class RosterMembership < ApplicationRecord
 
   validate :unit_and_roster_same_game
 
+  def increment_appearances
+    update(appearances: appearances + 1)
+  end
+
 private
 
   def unit_and_roster_same_game

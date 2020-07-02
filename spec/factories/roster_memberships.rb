@@ -5,7 +5,7 @@ FactoryBot.define do
       unit { false }
     end
 
-    roster factory: :roster
+    roster
     for_warcraft_unit
 
     trait :for_warcraft_unit do

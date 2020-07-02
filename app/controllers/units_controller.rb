@@ -1,4 +1,6 @@
 class UnitsController < ApplicationController
+  # NO ACTUAL UNIT MODEL - PARENT FOR POLYMORPHIC
+
   before_action :find_unit, only: %i[edit update]
   before_action :require_admin
 

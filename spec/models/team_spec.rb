@@ -34,7 +34,7 @@ RSpec.describe Team do
 
     it "adds more if team size is increased" do
       team = create :team, team_size: 5
-      team.update_attributes(team_size: 7)
+      team.update(team_size: 7)
 
       expect(team.team_memberships.count).to eq(7)
     end

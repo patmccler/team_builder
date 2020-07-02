@@ -13,6 +13,7 @@ class WarcraftUnitsController < ApplicationController
   end
 
   def create
+    # TODO: Clean this up.
     @unit = WarcraftUnit.new(warcraft_unit_params)
     @roster = Roster.find(params[:roster_id])
     @unit.roster_memberships.build(roster: @roster) if @roster

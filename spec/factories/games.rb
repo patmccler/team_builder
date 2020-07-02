@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :game do
-    name { "World of Warcraft" }
+    sequence :name do |n|
+      "Warcraft # #{n}"
+    end
     unit_type { Game::UNIT_TYPES.first }
   end
 end

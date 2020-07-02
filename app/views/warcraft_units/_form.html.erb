@@ -5,5 +5,7 @@
   <%= f.text_field :name %><br>
   <%= f.label :buff %><br>
   <%= f.text_field :buff %><br>
+  <%= f.label :role %><br>
+  <%= f.collection_radio_buttons :role, @roles, :itself, :itself %><br>
   <%= f.submit%>
 <% end %>

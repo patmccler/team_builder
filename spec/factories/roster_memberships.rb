@@ -10,7 +10,7 @@ FactoryBot.define do
 
     trait :for_warcraft_unit do
       after(:build) do |rm, eval|
-        rm.unit = eval.unit || (build :warcraft_unit, game: rm.roster.game)}
+        rm.unit = eval.unit || (build :warcraft_unit, game: rm.roster.game)
       end
     end
 

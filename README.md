@@ -24,3 +24,14 @@ These groupings belong to two categories, which I called affiliation and combat 
       - in this example, you'd have 3 blade masters and 3 rebels, gaining both buffs
       - need to add support for thresholds - not ever grouping benefits at the same count of buffs
       - You are allowed duplicate units, but they do not count twice toward your bonus threshold. This is implemented.
+
+This is the basis of the user facing side. You pick a roster for your team, and set how many units you want on your team. Then you see the provided info based on the units you picked.
+
+An admin can create new rosters, or copy from old ones.
+This represents the games being updated, and the available units changing. (Need to implement removing units from a team)
+When you copy a roster, the same units have memberships added to that roster, so its possible to track how long a unit has been unchanged (in terms of game updates).
+
+You can create a new game, but that probably needs to be refactored out. Really, each game corresponds to a unit_type and creating a new game doesn't provide anything a new roster would.
+
+You can create a fresh roster and only include limited units, or units from the game at different stages.
+  - for example, WoW currently runs a "classic" server, with the game as it was when it first launched. Units typically aren't removed from the game, but their functionality changes drastically. They may not offer the same buffs from patch to patch, hence the need to create separate rosters.

@@ -14,8 +14,32 @@
  *= require_self
  */
 
+ nav {
+   padding-left: 12%;
+   display: flex;
+   justify-content: flex-start;
+ }
+
+ nav div {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 3px;
+  border-color: black;
+  background-color: lightblue;
+ }
+
+ nav a:visited, nav a:link {
+   color: black;
+   text-decoration: none;
+ }
+
  body {
    background-color: lightslategray;
+ }
+
+ main {
+   width: 75%;
+   margin: auto;
  }
 
  .field_with_errors {

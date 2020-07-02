@@ -11,10 +11,12 @@
 
   <body>
     <nav>
-      <%= link_to "Home", root_path %>
-      <%= link_to "My Teams", teams_path if logged_in? %>
-      <%= link_to "Games", games_path if logged_in? && admin? %>
+      <div><%= link_to "Home", root_path %></div>
+      <div><%= link_to "My Teams", teams_path if logged_in? %></div>
+      <div><%= link_to "Games", games_path if logged_in? && admin? %></div>
     </nav>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

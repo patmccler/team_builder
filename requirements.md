@@ -26,9 +26,9 @@ Team/edit has field_for team_memberships, editing all the units on the team at o
 /roster/:id/warcraft_units/new
 - [x] Includes form display of validation errors
 all forms should show errors in page
-- [ ] Includes Unit tests all of your models
+- [x] Includes Unit tests all of your models
 - [ ] Includes at least one type of Integration test (e.g. controller, request, feature, system)
-- [ ] Use FactoryBot to build instances of your models in your tests
+- [x] Use FactoryBot to build instances of your models in your tests
 - [ ] Conforms to Nitro Ruby linting rules (running `rubocop` returns 0 offenses)
 - [ ] Includes a `README.md` with an application description and installation guide
 

@@ -8,6 +8,6 @@ module SessionsHelper
   end
 
   def admin?
-    current_user.admin
+    logged_in? && current_user.admin
   end
 end

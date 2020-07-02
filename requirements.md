@@ -11,7 +11,7 @@ User has many teams, and others
 team belongs to user, roster belongs to game
 - [x] Includes at least two has_many through relationships (e.g. a `Recipe` could `has_many` `Item`s through `Ingredient`s)
 team has units through team_membership, roster has units through roster_membership
-- [QUESTION???] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
+- [ ] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
 Do I need this on my join tables? I dont have a view or any other way to see them...
 Order numbered on roster? Seeding? Other stats around pick order
 - [x] Includes reasonable validations
@@ -51,7 +51,6 @@ If you've added any additional functionality to your application that you'd like
   - controller needs to pass some class specific things( path, class name, symbol for params)
   - different unit types can then have different attributes, or even join to other tables(if I get to implementing it)
   - allows teams to display different collections of info based on whats relevant to that game
-- Rosters and units are has_many: through roster_membership because I was going to implement moving a unit between rosters but didnt get to it yet
 - Factory for roster_membership was neat to implement.
   - polymorphic relationship needs trait with allow choice of association
   - because that polymorphically related model needs to have the same 'game' as the 'roster', had to go through a call back

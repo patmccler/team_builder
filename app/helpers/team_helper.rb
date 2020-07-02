@@ -5,8 +5,11 @@ module TeamHelper
   end
 
   def render_team_info(team)
-    render_wow_team_info(team) if team.roster.unit_type == "WarcraftUnit"
-    render_tft_team_info(team) if team.roster.unit_type == "TeamFightTacticsUnit"
+    if team.roster.unit_type == "WarcraftUnit"
+      render_wow_team_info(team)
+    elsif team.roster.unit_type == "TeamFightTacticsUnit"
+      render_tft_team_info(team)
+    end
   end
 
   def render_wow_team_info(team)
@@ -23,9 +26,11 @@ module TeamHelper
   end
 
   def render_tft_team_info(team)
+    # duplicate members dont add to count
+    members = team.units.reject(&:blank?).uniq
     locals = {
-      affiliations: team.units.group_by(&:affiliation),
-      combat_styles: team.units.group_by(&:combat_style),
+      affiliations: members.group_by(&:affiliation),
+      combat_styles: members.group_by(&:combat_style),
     }
 
     render partial: "team_fight_tactics_units/team_info", locals: locals

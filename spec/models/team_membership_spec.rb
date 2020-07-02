@@ -14,20 +14,24 @@ RSpec.describe TeamMembership do
     end
 
     it "can have a unit" do
-      tm = create :team_membership, unit: (create :warcraft_unit)
+      rm = create :roster_membership
+      tm = create :team_membership
+      tm.unit = rm.unit
       expect(tm.valid?).to be true
     end
 
     it "sets unit type correctly" do
-      tm = create :team_membership, unit: (create :warcraft_unit)
+      tm = create :team_membership
+      tm.unit = create :warcraft_unit
       expect(tm.unit_type).to eq("WarcraftUnit")
     end
   end
 
   describe "relates teams and units" do
     it "joins a unit with a team" do
-      team = create :team
-      unit = create :warcraft_unit
+      rm = create :roster_membership
+      team = create :team, roster: rm.roster
+      unit = rm.unit
 
       create :team_membership, team: team, unit: unit
       expect(team.units).to include(unit)

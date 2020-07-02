@@ -15,4 +15,9 @@ class Roster < ApplicationRecord
   def name_with_game
     game.name + " - " + name
   end
+
+  def add_units(units)
+    roster_memberships.build(units.map { |unit| { unit: unit } })
+    save
+  end
 end

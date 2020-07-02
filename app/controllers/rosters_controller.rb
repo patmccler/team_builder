@@ -1,5 +1,5 @@
 class RostersController < ApplicationController
-  before_action :set_roster, only: %i[show edit update destroy copy]
+  before_action :set_roster, only: %i[show edit update destroy copy clone]
   before_action :require_admin
 
   def new
@@ -37,7 +37,16 @@ class RostersController < ApplicationController
   def copy; end
 
   def clone
-    binding.pry
+    new_roster = Roster.new(roster_params)
+    if new_roster.save
+      # binding.pry
+      new_roster.add_units(@roster.units)
+
+      redirect_to new_roster
+    else
+      @roster = new_roster
+      render :copy
+    end
   end
 
 private

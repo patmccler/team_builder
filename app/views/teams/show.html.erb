@@ -2,10 +2,12 @@
 <h3>Roster: <%= @team.roster.name_with_game %></h3>
 <h4>Units:</h4>
 <ol>
-  <% @team.units.each do |unit| %>
-    <li><%= unit ? unit.name : "unselected" %></li>
-  <% end %>
+  <%= render @team.units.select(&:present?)%>
 </ol>
+<% unselected_count = @team.units.count(&:nil?)%>
+<% if unselected_count.positive? %>
+  <%= "#{pluralize(unselected_count, "Unit")} Unselected"  %><br>
+<% end %>
 <%= link_to "Edit", edit_team_path(@team)%><br><br>
 
 <%= link_to "Back to Teams", teams_path%>

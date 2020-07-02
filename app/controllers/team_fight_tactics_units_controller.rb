@@ -17,8 +17,7 @@ class TeamFightTacticsUnitsController < UnitsController
 private
 
   def unit_params
-    # dont call super, instead define tft specific things here once implemented
-    super(:team_fight_tactics_unit)
+    params.require(:team_fight_tactics_unit).permit(:name, :roster_ids, :affiliation, :combat_style)
   end
 
   def find_unit

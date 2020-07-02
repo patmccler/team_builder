@@ -3,5 +3,9 @@
 <%= form_for (@roster ? [@roster, @unit] : @unit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
+  <%= f.label :combat_style %><br>
+  <%= f.text_field :combat_style %><br>
+  <%= f.label :affiliation %><br>
+  <%= f.text_field :affiliation %><br>
   <%= f.submit%>
 <% end %>

@@ -11,9 +11,10 @@ User has many teams, and others
 team belongs to user, roster belongs to game
 - [x] Includes at least two has_many through relationships (e.g. a `Recipe` could `has_many` `Item`s through `Ingredient`s)
 team has units through team_membership, roster has units through roster_membership
-- [ ] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
-Do I need this on my join tables? I dont have a view or any other way to see them...
-Order numbered on roster? Seeding? Other stats around pick order
+- [x] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
+team_memberships has change_count, might want to display total changes somewhere
+roster_memberships have appearances, incremented when a unit on a roster is added to a team
+ - stat for how many times this unit has been added while on this roster
 - [x] Includes reasonable validations
 no duplicates, no empty values
 - [x] Includes a class level ActiveRecord scope method
@@ -31,7 +32,7 @@ all forms should show errors in page
 - [x] Includes at least one type of Integration test (e.g. controller, request, feature, system)
 - [x] Use FactoryBot to build instances of your models in your tests
 - [x] Conforms to Nitro Ruby linting rules (running `rubocop` returns 0 offenses)
-- [ ] Includes a `README.md` with an application description and installation guide
+- [x] Includes a `README.md` with an application description and installation guide
 
 Confirm:
 - [x] The application is pretty DRY
@@ -58,3 +59,6 @@ If you've added any additional functionality to your application that you'd like
 - Polymorphic joins table between teams/roster and WarcraftUnits vs TFTUnits
   - 95% of model was repeated, moved to module and used self.included(base) to put all the shared validations/relations in one file. I bet theres a cleaner way to do it but I had to break it up weirdly to make rubocop happy
   - Similarly, controllers were almost the same for both. Instead of a module, I put the logic in a parent controller, and had both WarcraftUnit and TFTUnit inherit from it. Then, I could assing ivars or pass values with super for the controller action. Again, curious how to better handle this. It felt pretty clean but seems against the typical controller pattern
+- After reviewing with Garett, Game is largely unneeded. Will refactor out if I have time
+  - Basically just a place to store unit-type, which roster could easily story
+  - have to refactor admin views, start with roster index instead of game, maybe sort by roster.unit_type

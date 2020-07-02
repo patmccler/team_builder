@@ -18,7 +18,7 @@ private
 
   def unit_params
     # dont call super, instead define warcraft specific things here once implemented
-    super(:warcraft_unit)
+    params.require(:warcraft_unit).permit(:name, :roster_ids, :buff)
   end
 
   def find_unit

@@ -3,5 +3,7 @@
 <%= form_for (@roster ? [@roster, @unit] : @unit) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
+  <%= f.label :buff %><br>
+  <%= f.text_field :buff %><br>
   <%= f.submit%>
 <% end %>

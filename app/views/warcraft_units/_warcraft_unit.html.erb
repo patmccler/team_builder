@@ -1,0 +1,5 @@
+<div class="class-card">
+<%=  warcraft_unit.name %><br>
+<%= "Buff: " + (warcraft_unit&.buff || "No buff")%><br>
+<%= link_to "Edit", edit_warcraft_unit_path(warcraft_unit) %><br><br>
+</div>

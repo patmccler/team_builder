@@ -1,15 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# creating some basic data for the app
+admin = User.create(username: "admin", password: "admin", admin: true)
+user = User.create(username: "pat", password: "password")
 
 tank = WarcraftUnit::ROLE_VALUES[0]
 dps = WarcraftUnit::ROLE_VALUES[1]
 healer = WarcraftUnit::ROLE_VALUES[2]
-
 
 Game.all.destroy_all
 

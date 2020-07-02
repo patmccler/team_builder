@@ -1,0 +1,10 @@
+<h3>Team Roles</h3>
+<ul>
+  <% roles.each do |role, units| %>
+    <li><%= "#{role}: #{units.count}"%></li>
+  <% end %>
+</ul>
+
+<h3>Team Buff Info</h3>
+Enabled Buffs: <%= team_buffs.join(" ")%><br>
+Missing Buffs: <%= missing_buffs.join(", ")%><br><br>

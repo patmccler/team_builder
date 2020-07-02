@@ -9,10 +9,11 @@ module TeamHelper
   end
 
   def render_wow_buff_info(team)
-    team_buffs = team.units.map(&:buff).compact.uniq
-    all_buffs = team.roster.units.map(&:buff).uniq
+    team_buffs = team.units.map(&:buff).reject(&:blank?).uniq
+    all_buffs = team.roster.units.map(&:buff).reject(&:blank?).uniq
+    roles = team.units.group_by(&:role)
     missing_buffs = all_buffs - team_buffs
-    render partial: "warcraft_units/buff_info", locals: { team_buffs: team_buffs, missing_buffs: missing_buffs }
+    render partial: "warcraft_units/team_info", locals: { team_buffs: team_buffs,
+                                                          missing_buffs: missing_buffs, roles: roles }
   end
-
 end

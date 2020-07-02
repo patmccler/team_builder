@@ -1,0 +1,12 @@
+<h3>Team Combat Styles</h3>
+<ul>
+  <% combat_styles.each do |combat_style, units| %>
+    <li><%= "#{combat_style}: #{units.count}"%></li>
+  <% end %>
+</ul>
+<h3>Team Affiliations</h3>
+<ul>
+  <% affiliations.each do |affiliation, units| %>
+    <li><%= "#{affiliation}: #{units.count}"%></li>
+  <% end %>
+</ul>

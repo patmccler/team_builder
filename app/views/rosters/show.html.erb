@@ -4,8 +4,11 @@
 <br>
 <p>This roster has <%= pluralize(@roster.units.count, 'unit')%>.</p>
 <ol>
-  <% @roster.units.each do |unit| %>
-    <li><%= unit.name %></li>
+  <% @roster.roster_memberships.each do |roster_membership| %>
+    <li>
+      <%= roster_membership.unit.name %><br>
+      Appeared <%= pluralize(roster_membership.appearances, "time") %>
+    </li>
   <% end %>
 </ol>
 <%= unit_path(@roster) %>

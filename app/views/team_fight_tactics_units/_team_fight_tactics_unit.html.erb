@@ -1,5 +1,7 @@
 <% edit ||= false %>
 <div class="unit-card">
-<%=  team_fight_tactics_unit.name %><br>
-<%= link_to "Edit", edit_team_fight_tactics_unit_path(team_fight_tactics_unit) if edit %><br><br>
+  <%=  team_fight_tactics_unit.name %><br>
+  <%=  "Affiliation: " + (team_fight_tactics_unit.affiliation || "not set") %><br>
+  <%= "Combat Style: " + (team_fight_tactics_unit.combat_style || "not set") %><br>
+  <%= link_to "Edit", edit_team_fight_tactics_unit_path(team_fight_tactics_unit) if edit %><br><br>
 </div>

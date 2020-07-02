@@ -1,7 +1,7 @@
 <% edit ||= false %>
 <div class="unit-card">
-<%=  warcraft_unit.name %><br>
-<%= "Buff: " + (warcraft_unit&.buff || "No buff") %><br>
-<%= "Role: " + (warcraft_unit.role || "No Role Set") %><br>
-<%= link_to "Edit", edit_warcraft_unit_path(warcraft_unit) if edit %><br><br>
+  <%=  warcraft_unit.name %><br>
+  <%= "Buff: " + (warcraft_unit&.buff || "No buff") %><br>
+  <%= "Role: " + (warcraft_unit.role || "No Role Set") %><br>
+  <%= link_to "Edit", edit_warcraft_unit_path(warcraft_unit) if edit %><br><br>
 </div>

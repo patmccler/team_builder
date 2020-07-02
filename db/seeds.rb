@@ -1,6 +1,6 @@
 # creating some basic data for the app
-admin = User.create(username: "admin", password: "admin", admin: true)
-user = User.create(username: "pat", password: "password")
+User.create(username: "admin", password: "admin", admin: true)
+User.create(username: "pat", password: "password")
 
 tank = WarcraftUnit::ROLE_VALUES[0]
 dps = WarcraftUnit::ROLE_VALUES[1]
@@ -8,12 +8,12 @@ healer = WarcraftUnit::ROLE_VALUES[2]
 
 Game.all.destroy_all
 
-#Create Games
+# Create Games
 wow = Game.create(name: "World of Warcraft", unit_type: Game::UNIT_TYPES[0])
-tft = Game.create(name: "Team Fight Tactics", unit_type: Game::UNIT_TYPES[1])
+_tft = Game.create(name: "Team Fight Tactics", unit_type: Game::UNIT_TYPES[1])
 
 wow_roster = wow.rosters.build(
-  { name: "Classic WoW", description: "Patch 1.0"}
+  { name: "Classic WoW", description: "Patch 1.0" }
 )
 wow_roster.save
 

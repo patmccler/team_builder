@@ -26,7 +26,24 @@ RSpec.describe Team do
     end
   end
 
-  describe "it updates its team_memberships when team size changes" do
-    # TODO: after team memberships factory created
+  describe "team membership autopopulation" do
+    it "creates when team is created, based on team size" do
+      team = create :team, team_size: 5
+      expect(team.team_memberships.count).to eq(5)
+    end
+
+    it "adds more if team size is increased" do
+      team = create :team, team_size: 5
+      team.update_attributes(team_size: 7)
+
+      expect(team.team_memberships.count).to eq(7)
+    end
+
+    it "removes some if team size is decreased" do
+      team = create :team, team_size: 5
+      team.update_attributes(team_size: 3)
+
+      expect(team.team_memberships.count).to eq(3)
+    end
   end
 end

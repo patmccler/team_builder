@@ -12,7 +12,12 @@ class WarcraftUnitsController < UnitsController
     super(UNIT_CLASS_NAME, UNIT_PATH_SYMBOL)
   end
 
+  def edit
+    @roles = WarcraftUnit::ROLE_VALUES
+  end
+
   def update
+    @roles = WarcraftUnit::ROLE_VALUES
     super(UNIT_PATH_SYMBOL)
   end
 

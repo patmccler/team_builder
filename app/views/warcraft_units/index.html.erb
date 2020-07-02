@@ -1,6 +1,6 @@
 <h2> Units <%= "for #{@roster.name}" if @roster %></h2>
 <ol>
-  <%= render partial: "warcraft_unit", collection: @units %>
+  <%= render partial: "warcraft_unit", collection: @units, locals: { edit: true } %>
 </ol>
 <%= link_to "Add new unit", new_roster_warcraft_unit_path(@roster) %><br>
 <%= link_to "Back to Roster", roster_path(@roster)%>

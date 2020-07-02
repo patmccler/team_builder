@@ -13,14 +13,13 @@ class UnitsController < ApplicationController
   end
 
   def create(unit_class, roster_path)
-    # TODO: Clean this up.
     @unit = unit_class.new(unit_params)
     @roster = Roster.find(params[:roster_id])
-    @unit.roster_memberships.build(roster: @roster) if @roster
+    @unit.roster_memberships.build(roster: @roster)
     @unit.game = @roster.game
 
     if @unit.save
-      redirect_to send(roster_path, @unit.rosters.last) || @unit
+      redirect_to send(roster_path, @unit.rosters.last)
     else
       render :new
     end

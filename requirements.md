@@ -21,8 +21,9 @@ both units have a scope for units that are in a roster with a given unit (is thi
 implemented manually
 - [x] Includes nested resource show or index (e.g. users/2/recipes)
 /roster/:id/warcraft_units
-- [ ] Includes nested resource form (recipes/1/ingredients/new)
+- [x] Includes nested resource form (recipes/1/ingredients/new)
 Team/edit has field_for team_memberships, editing all the units on the team at once
+/roster/:id/warcraft_units/new
 - [x] Includes form display of validation errors
 all forms should show errors in page
 - [ ] Includes Unit tests all of your models

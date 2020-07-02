@@ -7,8 +7,11 @@ RSpec.describe RosterMembership do
 
       roster_membership = create :roster_membership
       expect(roster_membership.valid?).to be(true)
-      binding.pry
     end
 
+    it "joins a unit with a roster" do
+
+
+    end
   end
 end

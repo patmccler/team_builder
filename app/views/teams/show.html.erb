@@ -5,7 +5,7 @@
 <ol>
   <%= render @team.units.select(&:present?)%>
 </ol>
-<%= show_unselected(@team) %>
+<%= show_unselected(@team) %><br>
 <%= link_to "Edit", edit_team_path(@team)%><br><br>
 
 <%= link_to "Back to Teams", teams_path%>

@@ -1,48 +1,27 @@
-class WarcraftUnitsController < ApplicationController
-  before_action :set_unit, only: %i[edit update]
-  before_action :require_admin
-
-  def index
-    @roster = Roster.find_by(id: params[:roster_id])
-    @units = @roster ? @roster.units : Unit.all
-  end
+class WarcraftUnitsController < UnitsController
+  UNIT_PATH_SYMBOL = :roster_warcraft_units_path
+  UNIT_CLASS_NAME = WarcraftUnit
 
   def new
-    @unit = WarcraftUnit.new
-    @roster = Roster.find_by(id: params[:roster_id])
+    super(UNIT_CLASS_NAME)
   end
 
   def create
-    # TODO: Clean this up.
-    @unit = WarcraftUnit.new(warcraft_unit_params)
-    @roster = Roster.find(params[:roster_id])
-    @unit.roster_memberships.build(roster: @roster) if @roster
-    @unit.game = @roster.game
-
-    if @unit.save
-      redirect_to roster_warcraft_units_path(@roster) || @unit
-    else
-      render :new
-    end
+    super(UNIT_CLASS_NAME, UNIT_PATH_SYMBOL)
   end
 
-  def edit; end
-
   def update
-    if @unit.update(warcraft_unit_params)
-      redirect_to roster_warcraft_units_path(@unit.rosters.last)
-    else
-      render :edit
-    end
+    super(UNIT_PATH_SYMBOL)
   end
 
 private
 
-  def warcraft_unit_params
-    params.require(:warcraft_unit).permit(:name, :roster_ids)
+  def unit_params
+    # dont call super, instead define warcraft specific things here once implemented
+    super(:warcraft_unit)
   end
 
-  def set_unit
-    @unit = WarcraftUnit.find(params[:id])
+  def find_unit
+    super(UNIT_CLASS_NAME)
   end
 end

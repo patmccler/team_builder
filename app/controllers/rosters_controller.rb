@@ -1,5 +1,5 @@
 class RostersController < ApplicationController
-  before_action :set_roster, only: %i[show edit update destroy]
+  before_action :set_roster, only: %i[show edit update destroy copy]
   before_action :require_admin
 
   def new
@@ -32,6 +32,12 @@ class RostersController < ApplicationController
   def destroy
     @roster.delete
     redirect_to @roster.game
+  end
+
+  def copy; end
+
+  def clone
+    binding.pry
   end
 
 private

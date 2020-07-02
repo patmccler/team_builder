@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :team_fight_tactics_units, only: [:index, :new, :create]
   end
 
+  get "rosters/:id/copy", to: "rosters#copy", as: "copy_roster"
+  post "rosters/:id/clone", to: "rosters#clone", as: "clone_roster"
+
   resources :warcraft_units, only: [:create, :edit, :update, :show]
   resources :team_fight_tactics_units, only: [:create, :edit, :update, :show]
 

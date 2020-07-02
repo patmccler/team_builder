@@ -1,6 +1,12 @@
+<% opts = {} %>
+<% form_url_options ||= false %>
+<% html_method ||= false %>
+<% opts[:url] = form_url_options if form_url_options %>
+<% opts[:method] = html_method if html_method %>
+
 <%= render 'layouts/errors', object: @roster %>
 
-<%= form_for @roster do |f|%>
+<%= form_for @roster, opts do |f|%>
   <%= f.hidden_field :game_id%>
   <%= f.label :name%><br>
   <%= f.text_field :name %><br>

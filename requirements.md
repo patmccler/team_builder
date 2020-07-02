@@ -13,6 +13,7 @@ team belongs to user, roster belongs to game
 team has units through team_membership, roster has units through roster_membership
 - [QUESTION???] Every model contains at least at least two simple attributes (e.g. ingredient#quantity)
 Do I need this on my join tables? I dont have a view or any other way to see them...
+Order numbered on roster? Seeding? Other stats around pick order
 - [x] Includes reasonable validations
 no duplicates, no empty values
 - [x] Includes a class level ActiveRecord scope method

@@ -1,0 +1,2 @@
+<h2>Copy <%= @roster.name %></h2>
+<%= render partial: "form", locals: { form_url_options: { action: "clone"}, html_method: "POST" } %>

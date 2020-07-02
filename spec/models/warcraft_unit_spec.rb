@@ -23,6 +23,11 @@ RSpec.describe WarcraftUnit do
       expect(unit.valid?).to be(false)
     end
 
+    it "must only have a role from [tank, healer, dps]" do
+      unit = build(:warcraft_unit, role: "Buffer")
+      expect(unit.valid?).to be(false)
+    end
+
   end
 
 end

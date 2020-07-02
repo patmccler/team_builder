@@ -20,7 +20,14 @@ RSpec.describe TeamFightTacticsUnit do
       unit = build(:team_fight_tactics_unit, name: name, game: game)
       # using factory doesnt hit validation correctly
       unit.roster_memberships.build(roster: roster)
-      expect(unit.valid?).to be(false)
+      expect(unit.valid?).to be false
+    end
+
+    it "cant have long combat style or affiliations" do
+      unit = build :team_fight_tactics_unit, affiliation: ("a"*50)
+      expect(unit.valid?).to be false
+      unit = build :team_fight_tactics_unit, combat_style: ("a"*50)
+      expect(unit.valid?).to be false
     end
 
   end

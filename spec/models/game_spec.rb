@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Game do
-
   describe "game validations" do
     it "has a valid factory" do
       game = create :game
@@ -17,9 +16,19 @@ RSpec.describe Game do
     end
 
     it "must have a name" do
-      expect(build(:game, name: nil).valid?).to be(false)
+      game = build(:game, name: nil)
+      expect(game.valid?).to be(false)
     end
 
-  end
+    it "must have specific unit types" do
+      game = build(:game, unit_type: "Baseball Player")
+      expect(game.valid?).to be(false)
+      expect(build(:game, unit_type: nil).valid?).to be(false)
 
+      Game::UNIT_TYPES.each do |unit_type|
+        game = build(:game, unit_type: unit_type)
+        expect(game.valid?).to be(true)
+      end
+    end
+  end
 end

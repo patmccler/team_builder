@@ -1,5 +1,6 @@
 <h2>Team: <%= @team.name %></h2>
 <h3>Roster: <%= @team.roster.name_with_game %></h3>
+<%= render_team_info(@team) %>
 <h4>Units:</h4>
 <ol>
   <%= render @team.units.select(&:present?)%>

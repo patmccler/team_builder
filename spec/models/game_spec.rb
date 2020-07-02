@@ -11,7 +11,6 @@ RSpec.describe Game do
     it "has a unique name" do
       name = "WOW"
       create :game, name: name
-
       expect(build(:game, name: name).valid?).to be(false)
     end
 

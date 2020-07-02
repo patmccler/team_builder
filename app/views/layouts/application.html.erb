@@ -11,9 +11,9 @@
 
   <body>
     <nav>
-      <div><%= link_to "Home", root_path %></div>
-      <div><%= link_to "My Teams", teams_path if logged_in? %></div>
-      <div><%= link_to "Games", games_path if logged_in? && admin? %></div>
+      <%= content_tag :div, link_to("Home", root_path) %>
+      <%= content_tag :div, link_to("My Teams", teams_path) if logged_in? %>
+      <%= content_tag :div, link_to("Games", games_path) if logged_in? && admin? %>
     </nav>
     <main>
       <%= yield %>

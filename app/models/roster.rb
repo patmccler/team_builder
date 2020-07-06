@@ -1,6 +1,4 @@
 class Roster < ApplicationRecord
-  belongs_to :game
-
   UNIT_TYPES = %w[WarcraftUnit TeamFightTacticsUnit].freeze
 
   has_many :roster_memberships, dependent: :destroy
@@ -9,12 +7,14 @@ class Roster < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :description, presence: true, length: { maximum: 140 }
 
+  validates :unit_type, presence: true, inclusion: { in: UNIT_TYPES }
+
   def units
     roster_memberships.map(&:unit)
   end
 
   def name_with_game
-    game.name + " - " + name
+    name + " - " + unit_type.tableize.humanize
   end
 
   def add_units(units)

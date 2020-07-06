@@ -12,5 +12,10 @@
   <%= f.text_field :name %><br>
   <%= f.label :description %><br>
   <%= f.text_field :description%><br>
+  <%= f.label :unit_type %><br>
+  <% @unit_types.each do |unit_type| %>
+    <%= unit_type_radio_button_with_label(f, unit_type) %><br>
+
+  <% end %><br>
   <%= f.submit %>
 <% end %>

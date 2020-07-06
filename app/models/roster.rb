@@ -1,6 +1,7 @@
 class Roster < ApplicationRecord
   belongs_to :game
-  delegate :unit_type, to: :game
+
+  UNIT_TYPES = %w[WarcraftUnit TeamFightTacticsUnit].freeze
 
   has_many :roster_memberships, dependent: :destroy
   has_many :teams, dependent: :destroy

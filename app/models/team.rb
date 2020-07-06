@@ -27,8 +27,7 @@ private
       team_count_difference.times { team_memberships.build(unit_type: roster.unit_type) }
     else
       # Count back from end of array 'team_count_difference' elements and delete
-      t = team_memberships[team_count_difference, -team_count_difference]
-      TeamMembership.where(id: t.map(&:id)).delete_all
+      team_memberships.order(:id)[team_count_difference, -team_count_difference].map(&:delete)
     end
   end
 end

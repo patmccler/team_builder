@@ -12,12 +12,11 @@ RSpec.describe TeamFightTacticsUnit do
       expect(build(:roster, name: nil).valid?).to be(false)
 
       name = "Master Yi"
-      game = create :game, name: "TFT"
-      roster = create :roster, game: game
+      roster = create :roster, unit_type: Roster::UNIT_TYPES[1]
 
-      create :roster_membership, roster: roster, unit: (create :team_fight_tactics_unit, name: name, game: game)
+      create :roster_membership, roster: roster, unit: (create :team_fight_tactics_unit, name: name)
 
-      unit = build(:team_fight_tactics_unit, name: name, game: game)
+      unit = build(:team_fight_tactics_unit, name: name)
       # using factory doesnt hit validation correctly
       unit.roster_memberships.build(roster: roster)
       expect(unit.valid?).to be false

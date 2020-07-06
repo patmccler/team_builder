@@ -22,23 +22,13 @@ RSpec.describe Roster do
       expect(build(:roster, description: nil).valid?).to be false
       expect(build(:roster, description: long_desc).valid?).to be false
     end
-  end
 
-  describe "relates to game" do
-    it "Destroys with associated game" do
-      game = create :game
-      roster = create :roster, game: game
+    it "must have a unit type from list" do
+      roster = build_stubbed :roster, unit_type: "NOT REAL"
 
-      expect(Roster.count).to be(1)
-      game.destroy
-      expect(Roster.count).to be(0)
-    end
-
-    it "gets its unit type from game" do
-      game = build_stubbed :game
-      roster = build_stubbed :roster, game: game
-
-      expect(roster.unit_type).to be == game.unit_type
+      expect(roster.valid?).to be false
+      valid_roster = build :roster, unit_type: Roster::UNIT_TYPES[1]
+      expect(valid_roster.valid?).to be true
     end
   end
 

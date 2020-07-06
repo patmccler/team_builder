@@ -12,12 +12,10 @@ RSpec.describe WarcraftUnit do
       expect(build(:roster, name: nil).valid?).to be(false)
 
       name = "Marksman Hunter"
-      game = create :game
-      roster = create :roster, game: game
+      roster = create :roster
+      create :roster_membership, roster: roster, unit: (create :warcraft_unit, name: name)
 
-      create :roster_membership, roster: roster, unit: (create :warcraft_unit, name: name, game: game)
-
-      unit = build(:warcraft_unit, name: name, game: game)
+      unit = build(:warcraft_unit, name: name)
       # using factory doesnt hit validation correctly
       unit.roster_memberships.build(roster: roster)
       expect(unit.valid?).to be(false)

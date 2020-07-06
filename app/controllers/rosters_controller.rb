@@ -2,8 +2,13 @@ class RostersController < ApplicationController
   before_action :set_roster, only: %i[show edit update destroy copy clone]
   before_action :require_admin
 
+  def index
+    @rosters = Roster.all
+  end
+
   def new
-    @roster = Roster.new(game: Game.find(params[:game_id]))
+    @roster = Roster.new
+    @unit_types = Roster::UNIT_TYPES
   end
 
   def create
@@ -13,13 +18,16 @@ class RostersController < ApplicationController
       redirect_to roster
     else
       @roster = roster
+      @unit_types = Roster::UNIT_TYPES
       render :new
     end
   end
 
   def show; end
 
-  def edit; end
+  def edit
+    @unit_types = Roster::UNIT_TYPES
+  end
 
   def update
     if @roster.update(roster_params)
@@ -31,7 +39,7 @@ class RostersController < ApplicationController
 
   def destroy
     @roster.delete
-    redirect_to @roster.game
+    redirect_to rosters_path
   end
 
   def copy; end
@@ -52,7 +60,7 @@ class RostersController < ApplicationController
 private
 
   def roster_params
-    params.require(:roster).permit(:name, :description, :game_id)
+    params.require(:roster).permit(:name, :description, :unit_type )
   end
 
   def set_roster

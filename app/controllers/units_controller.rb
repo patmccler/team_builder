@@ -18,7 +18,6 @@ class UnitsController < ApplicationController
     @unit = unit_class.new(unit_params)
     @roster = Roster.find(params[:roster_id])
     @unit.roster_memberships.build(roster: @roster)
-    @unit.game = @roster.game
 
     if @unit.save
       redirect_to send(roster_path, @unit.rosters.last)

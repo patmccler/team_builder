@@ -7,8 +7,6 @@ module Unit
 
   def self.include_relations(base)
     base.class_eval do
-      belongs_to :game
-
       has_many :team_memberships, as: :unit, dependent: :destroy
       has_many :teams, through: :team_memberships
 

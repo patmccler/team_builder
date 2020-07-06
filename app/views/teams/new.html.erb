@@ -7,7 +7,7 @@
   <%= f.text_field :team_size %><br><br>
   <br>
   <%= f.label :roster_id, "Roster:"%><br>
-  <%= f.collection_select :roster_id, @rosters, :id, :name_with_game, prompt: "Choose a roster"%><br>
+  <%= f.collection_select :roster_id, @rosters, :id, :name_with_unit_type, prompt: "Choose a roster"%><br>
   <br>
   <%= f.submit %>
 <% end %>

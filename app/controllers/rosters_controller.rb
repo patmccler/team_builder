@@ -2,6 +2,10 @@ class RostersController < ApplicationController
   before_action :set_roster, only: %i[show edit update destroy copy clone]
   before_action :require_admin
 
+  def index
+    @rosters = Roster.all
+  end
+
   def new
     @roster = Roster.new(game: Game.find(params[:game_id]))
   end

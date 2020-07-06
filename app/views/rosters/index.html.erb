@@ -1,0 +1,9 @@
+<h2>All Rosters</h2>
+<ol>
+  <% @rosters.each do |roster| %>
+    <li>
+      <%= link_to roster.name, roster_path(roster)%><br>
+      <%= link_to "Copy", copy_roster_path(roster) %>
+    </li>
+  <% end %>
+</ol>

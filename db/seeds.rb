@@ -6,6 +6,11 @@ tank = WarcraftUnit::ROLE_VALUES[0]
 dps = WarcraftUnit::ROLE_VALUES[1]
 healer = WarcraftUnit::ROLE_VALUES[2]
 
+Roster.destroy_all
+Team.destroy_all
+WarcraftUnit.destroy_all
+TeamFightTacticsUnit.destroy_all
+
 wow_roster = Roster.create(
   { name: "Classic WoW", description: "Patch 1.0", unit_type: Roster::UNIT_TYPES[0] }
 )

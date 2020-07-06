@@ -13,7 +13,7 @@ class Roster < ApplicationRecord
     roster_memberships.map(&:unit)
   end
 
-  def name_with_game
+  def name_with_unit_type
     name + " - " + unit_type.tableize.humanize
   end
 

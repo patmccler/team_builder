@@ -7,7 +7,6 @@
 <%= render 'layouts/errors', object: @roster %>
 
 <%= form_for @roster, opts do |f|%>
-  <%= f.hidden_field :game_id%>
   <%= f.label :name%><br>
   <%= f.text_field :name %><br>
   <%= f.label :description %><br>

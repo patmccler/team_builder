@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe RosterController do
+RSpec.describe RostersController do
   describe "GET index" do
     it "redirects if not logged in" do
 
